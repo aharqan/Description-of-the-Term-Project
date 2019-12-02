@@ -19,9 +19,10 @@ def randomBlockNumber(level):
 
 
 TESTING = False # False is default; setting to True causes the ball to bounce off baseline (used while testing collisions)
-WIDTH = 400
-HEIGHT = 800
-BLOCKSIZE = 40
+
+WIDTH = 400 #the width of the game window
+HEIGHT = 800 #the height of the game window
+BLOCKSIZE = 40 #size of the blocks (10 in total)
 INS = 2 # make the blocks slightly smaller in appearance
 TIMERDELAY = 10
 #main screen
@@ -36,8 +37,6 @@ class Main:
         Gamelabel.pack()
         img2.image = img2
         img3.image = img3
-        #playbtnimg = img2.subsample(3,2)
-        #shopbtnimg = img3.subsample(3,2)
         self.play_button=Button(root, text="Start Game", image = img2 ,command = self.startGame, bg = "black")
         self.shop_button=Button(root, text="Shop", image = img3, command = self.openShop, bg = "black")
         self.frame.pack()
@@ -65,7 +64,7 @@ class Main:
         else:
             pass
 
-
+# All the shop functionalities will be in this class
 class Shop:
     def __init__(self, root):
         self.frame = Frame(root)
@@ -73,28 +72,98 @@ class Shop:
         img1 = ImageTk.PhotoImage(Image.open("Balls1.png"))
         img2 = ImageTk.PhotoImage(Image.open("Themes1.png"))
         img3 = ImageTk.PhotoImage(Image.open("Coins1.png"))
+        img20 = ImageTk.PhotoImage(Image.open("Number1.png"))
         canvas1 = Canvas(self.frame, width = 2000, height = 150, bg = "black")
         inner_canvas1 = Canvas(canvas1, width = 300, height = 100, bg = "black")
         canvas1.create_window(50, 30, anchor = NW, window = inner_canvas1)
         inner_canvas1.create_image(110, 65, anchor = CENTER, image = img1)
         inner_canvas1.image = img1
         inner_canvas2 = Canvas(canvas1, width = 300, height = 100, bg = "black")
+        inner_canvas4 = Canvas(canvas1, width = 300, height = 100, bg = "black")
         canvas1.create_window(1000, 30, anchor = W, window = inner_canvas2)
         inner_canvas2.create_image(110, 65, anchor = CENTER, image = img3)
         inner_canvas2.image = img3
+        inner_canvas15 = Canvas(canvas1, width = 150, height = 50)
+        #canvas1.create_window(1000, 130, anchor = W, window = inner_canvas15)
+        #inner_canvas15.create_image(10, 30, anchor = W, image = img20)
+        #inner_canvas15.image = img20
+        #inner_canvas4.create_text(110, 65, anchor = CENTER, text = str(data.nCoins))
+        ########################################
+        img7 = ImageTk.PhotoImage(Image.open("Ball1().png"))
+        img8 = ImageTk.PhotoImage(Image.open("Ball2().png"))
+        img9 = ImageTk.PhotoImage(Image.open("Ball3().png"))
+        img10 = ImageTk.PhotoImage(Image.open("Ball4().png"))
+        img11 = ImageTk.PhotoImage(Image.open("Ball5().png"))
         canvas2 = Canvas(self.frame, width = 2000, height = 250, bg = "grey")
+        inner_canvas5 = Canvas(canvas2, width = 200, height = 25, bg = "black")
+        inner_canvas6 = Canvas(canvas2, width = 200, height = 25, bg = "black")
+        inner_canvas7 = Canvas(canvas2, width = 200, height = 25, bg = "black")
+        inner_canvas8 = Canvas(canvas2, width = 200, height = 25, bg = "black")
+        inner_canvas9 = Canvas(canvas2, width = 200, height = 25, bg = "black")
+        canvas2.create_window(50, 50, anchor = NW, window = inner_canvas5)
+        Button1 = Button(inner_canvas5, image = img7)
+        inner_canvas5.image = img7
+        canvas2.create_window(250, 50, anchor = NW, window = inner_canvas6)
+        Button2 = Button(inner_canvas6, image = img8)
+        inner_canvas6.image = img8
+        canvas2.create_window(450, 50, anchor = NW, window = inner_canvas7)
+        Button3 = Button(inner_canvas7, image = img9)
+        inner_canvas7.image = img9
+        canvas2.create_window(650, 50, anchor = NW, window = inner_canvas8)
+        Button4 = Button(inner_canvas8, image = img10)
+        inner_canvas8.image = img10
+        canvas2.create_window(850, 50, anchor = NW, window = inner_canvas9)
+        Button5 = Button(inner_canvas9, image = img11)
+        inner_canvas9.image = img11
+        Button1.pack(padx = 50, pady = 50)
+        Button2.pack(padx = 50, pady = 50)
+        Button3.pack(padx = 50, pady = 50)
+        Button4.pack(padx = 50, pady = 50)
+        Button5.pack(padx = 50, pady = 50)
+        ########################################
         canvas3 = Canvas(self.frame, width = 2000, height = 150, bg = "black")
         inner_canvas3 = Canvas(canvas3, width = 300, height = 100, bg = "black")
         canvas3.create_window(50, 30, anchor = NW, window = inner_canvas3)
         inner_canvas3.create_image(90, 65, anchor = CENTER, image = img2)
         inner_canvas3.image = img2
+        ########################################
+        img4 = ImageTk.PhotoImage(Image.open("Theme3(Blue).png"))
+        img5 = ImageTk.PhotoImage(Image.open("Theme2(Yellow).png"))
+        img6 = ImageTk.PhotoImage(Image.open("Theme3(Green).png"))
+        img12 = ImageTk.PhotoImage(Image.open("Theme2(Blue).png"))
+        img13 = ImageTk.PhotoImage(Image.open("Theme3(Orange).png"))
         canvas4 = Canvas(self.frame, width = 2000, height = 250, bg = "grey")
+        inner_canvas10 = Canvas(canvas4, width = 200, height = 25, bg = "black")
+        inner_canvas11 = Canvas(canvas4, width = 200, height = 25, bg = "black")
+        inner_canvas12 = Canvas(canvas4, width = 200, height = 25, bg = "black")
+        inner_canvas13 = Canvas(canvas4, width = 200, height = 25, bg = "black")
+        inner_canvas14 = Canvas(canvas4, width = 200, height = 25, bg = "black")
+        canvas4.create_window(50, 50, anchor = NW, window = inner_canvas10)
+        Button1 = Button(inner_canvas10, image = img4)
+        inner_canvas10.image = img4
+        canvas4.create_window(250, 50, anchor = NW, window = inner_canvas11)
+        Button2 = Button(inner_canvas11, image = img5)
+        inner_canvas11.image = img5
+        canvas4.create_window(450, 50, anchor = NW, window = inner_canvas12)
+        Button3 = Button(inner_canvas12, image = img6)
+        inner_canvas12.image = img6
+        canvas4.create_window(650, 50, anchor = NW, window = inner_canvas13)
+        Button4 = Button(inner_canvas13, image = img12)
+        inner_canvas13.image = img12
+        canvas4.create_window(850, 50, anchor = NW, window = inner_canvas14)
+        Button5 = Button(inner_canvas14, image = img13)
+        inner_canvas14.image = img13
+        Button1.pack(padx = 50, pady = 50)
+        Button2.pack(padx = 50, pady = 50)
+        Button3.pack(padx = 50, pady = 50)
+        Button4.pack(padx = 50, pady = 50)
+        Button5.pack(padx = 50, pady = 50)
         canvas1.pack()
         canvas2.pack()
         canvas3.pack()
         canvas4.pack()
         self.frame.pack()
-
+#the animation after the blocks are destroyed
 class Explosion:
     def __init__(self, row, col, explosionFrames):
         self.row = row
@@ -218,7 +287,9 @@ class Ball:
             if (row, col) in data.powerUpLocations:
                 data.powerUpLocations.remove((row, col))
                 data.nPowerUps += 1
-
+            if (row, col) in data.coinsLocations:#########
+                data.coinsLocations.remove((row,col))
+                data.nCoins.append(int(1))#########
             for rowNum in range(row-1, row+2):
                 for colNum in range(col-1, col+2):
                     if (rowNum, colNum) in data.blocks:
@@ -263,8 +334,12 @@ class Ball:
         
     #To draw the circle  
     def draw(self, canvas, data):
-        canvas.create_oval(self.x-self.radius+INS, self.y-self.radius+INS, self.x+self.radius-INS, self.y+self.radius-INS, fill='white')
-
+        img = ImageTk.PhotoImage(Image.open("Ball1().png"))
+        canvas.image = img
+        canvas.create_oval(self.x-self.radius+INS, self.y-self.radius+INS, self.x+self.radius-INS, self.y+self.radius-INS, fill = "blue")
+'''canvas4.create_window(450, 50, anchor = NW, window = inner_canvas12)
+        Button3 = Button(inner_canvas12, image = img6)
+        inner_canvas12.image = img6'''
 ########
 class PowerUp:
     def __init__(self, row, col):
@@ -278,14 +353,14 @@ class PowerUp:
         self.x = (col + 0.5) * BLOCKSIZE
         self.y = (row + 0.5) * BLOCKSIZE
         self.increasing = True
-    
+    #insert the new row of blocks
     def moveDown(self):
         self.row += 1
-        
+    #to draw the collectables off the blocks  
     def offGrid(self):
         return self.row > HEIGHT//BLOCKSIZE
     
-        
+    #draw the new balls to collect  
     def draw(self, canvas):
         if self.increasing and self.outerRadius >= self.outerMax:
             self.increasing = False
@@ -299,19 +374,48 @@ class PowerUp:
         canvas.create_oval(self.x-self.innerRadius, self.y-self.innerRadius, self.x+self.innerRadius, self.y+self.innerRadius, fill='white', outline='white')
         canvas.create_oval(self.x-self.outerRadius, self.y-self.outerRadius, self.x+self.outerRadius, self.y+self.outerRadius, width=self.width, outline='white')
         
+class Coins:########
+    def __init__(self, row, col):
+        self.row = row
+        self.col = col
+        self.innerRadius = 8
+        self.outerRadius = 13
+        self.outerMin = 10
+        self.outerMax = 16
+        self.width = 2
+        self.x = (col + 0.5) * BLOCKSIZE
+        self.y = (row + 0.5) * BLOCKSIZE
+        self.increasing = True
+    #insert the new row of blocks
+    def moveDown(self):
+        self.row += 1
+    #to draw the collectables off the blocks  
+    def offGrid(self):
+        return self.row > HEIGHT//BLOCKSIZE
     
+    #draw the new balls to collect  
+    def draw(self, canvas):
+        if self.increasing and self.outerRadius >= self.outerMax:
+            self.increasing = False
+        elif not self.increasing and self.outerRadius <= self.outerMin:
+            self.increasing = True
+        if self.increasing:
+            self.outerRadius += 0.5
+        else:
+            self.outerRadius -= 0.5
+ 
+        canvas.create_oval(self.x-self.innerRadius, self.y-self.innerRadius, self.x+self.innerRadius, self.y+self.innerRadius, fill='yellow', outline='yellow')
+        canvas.create_oval(self.x-self.outerRadius, self.y-self.outerRadius, self.x+self.outerRadius, self.y+self.outerRadius, width=self.width, outline='yellow')
+        ###############
 #########
-    
+#the line where the ball is initialized from  
 class ShootingLine():
     def __init__(self, x, y, angle):
         self.x = x
         self.y = y
         self.angle = angle
         self.hidden = False
-        #self.canvas = canvas
-        #self.line = self.canvas.create_rectangle(x - self.x / 2, y - self.y / 2, x + self.x/2, y + self.y /2, fill = "grey")
-        #line.pack()
-
+    #
     def setAngle(self, newAngle):
         self.angle = newAngle
     """  
@@ -322,14 +426,14 @@ class ShootingLine():
     """
     def getAngle(self):
         return self.angle
-        
+    #where the ball of the last shot stopped, to start the new round  
     def setStartingPoint(self, x, y):
         self.x = x
         self.y = y
-        
+    
     def setHidden(self, hidden):
         self.hidden = hidden
-        
+    #drawing a line to aim the ball  
     def draw(self, canvas):
         if not self.hidden:
             y2 = HEIGHT
@@ -343,7 +447,7 @@ class ShootingLine():
             canvas.create_line(self.x, self.y, x2, y2, dash=(8, 4))
             
     
-   
+#add the new row of the blocks, balls and coins
 def insertNewRow(data):
     blockLocations = set(data.blocks.keys())
     
@@ -359,8 +463,13 @@ def insertNewRow(data):
         if r <= HEIGHT//BLOCKSIZE:
             newPowerUpLocations.add((r, c))
     data.powerUpLocations = newPowerUpLocations
-        
 
+    newCoinsLocations = set()###########
+    for r, c in data.coinsLocations:
+        r += 1
+        if r <= HEIGHT//BLOCKSIZE:
+            newCoinsLocations.add((r,c))
+    data.coinsLocations = newCoinsLocations###########
 
     ncols = WIDTH//BLOCKSIZE
     for i in range(ncols//2):
@@ -373,7 +482,11 @@ def insertNewRow(data):
             emptyPositionsInFirstRow += [i]
     powerUpColumnNumber = choice(emptyPositionsInFirstRow)
     data.powerUpLocations.add((0, powerUpColumnNumber))
-
+    for i in range(ncols):##########
+        if (0, i) not in data.blocks and (0, i) not in data.powerUpLocations:
+            emptyPositionsInFirstRow += [i]
+    coinsColumnNumber = choice(emptyPositionsInFirstRow)
+    data.coinsLocations.add((0, coinsColumnNumber))###########
 
 def launchBall(data): # will add to the array
     data.launchedBalls.append(Ball(data.launchPosition[0], data.launchPosition[1], data.launchAngle))
@@ -389,15 +502,16 @@ def prepareForNewLevel(data):
     insertNewRow(data)
     data.nBalls += data.nPowerUps
     data.nPowerUps = 0
+    #data.nCoins = [] #########
     data.remainingBalls = data.nBalls
     data.timeSinceLastLaunch = 0
     data.shootingLine.setStartingPoint(data.launchPosition[0], data.launchPosition[1])
-
+#check if the blocks reached the shooting line where the game will end
 def checkIfGameOver(data):
     for r, c in data.blocks:
         if r == HEIGHT//BLOCKSIZE-1:
             data.gameOver = True
-
+#below will be most of the variable that has the role of a global variable
 def init(data):
     data.gameOver = False
     data.ballsMoving = False
@@ -413,10 +527,12 @@ def init(data):
     #data.returnedBalls = 0
     data.launchPosition = WIDTH/2, data.baselineY
     data.nPowerUps = 0
+    data.nCoins = [] ########
     data.timeSinceLastLaunch = 0 # 
     data.timeGap = 50
     data.blocks = {}
     data.powerUpLocations = set()
+    data.coinsLocations = set() ########
     data.explosions = set()
     data.launchedBalls = []
     """
@@ -447,11 +563,15 @@ def keyPressed(event, data):
         elif event.char == " ":
             data.ballsMoving = True
             data.score = data.score + 1
+        elif event.keysym == "Escape":
+            print("hi")
+            
+
 
             #data.ball.setAngle(data.shootingLine.getAngle())
             #data.ball.setMoving(True)
             #data.shootingLine.setHidden(True)
-            
+#the logic of the game goes in the function below     
 def timerFired(data): # all the game logic goes here
     
     
@@ -466,14 +586,10 @@ def timerFired(data): # all the game logic goes here
     if not data.ballsMoving:
         return
 
-
     data.timeSinceLastLaunch += TIMERDELAY
     if data.remainingBalls > 0 and data.timeSinceLastLaunch >= data.timeGap:
         data.timeSinceLastLaunch = 0
         launchBall(data)
-
-
-    
 
     ballsToRemove = len(data.launchedBalls) * [False]
     for i in range(len(data.launchedBalls)):
@@ -483,7 +599,6 @@ def timerFired(data): # all the game logic goes here
 
         if ballY == data.baselineY:
             ballsToRemove[i] = True
-            
 
     newLaunchedBalls = []
     for i in range(len(data.launchedBalls)):
@@ -499,8 +614,7 @@ def timerFired(data): # all the game logic goes here
         if data.remainingBalls == 0:
             prepareForNewLevel(data)
         # prepare for new level
-
-
+#the main drawing methods will be below
 def redrawAll(canvas, data): # only call drawing methods
     if data.gameOver:
         # put code to display game over screen here
@@ -516,6 +630,10 @@ def redrawAll(canvas, data): # only call drawing methods
     for gridpos in data.powerUpLocations:
         PowerUp(gridpos[0], gridpos[1]).draw(canvas)
     
+    for gridpos in data.coinsLocations:###########
+        Coins(gridpos[0], gridpos[1]).draw(canvas)
+
+
 
     if not data.ballsMoving:
         b = Ball(data.launchPosition[0], data.launchPosition[1], data.launchAngle)
@@ -525,12 +643,10 @@ def redrawAll(canvas, data): # only call drawing methods
     else:
         for ball in data.launchedBalls:
             ball.draw(canvas, data)
-        
-
 ####################################
 # use the run function as is
 ####################################
-
+#this function runs the main program (Game)
 def run(width=300, height=300):
 
     def redrawAllWrapper(canvas, data):
@@ -542,7 +658,8 @@ def run(width=300, height=300):
         canvas.delete(ALL)
         canvas.create_rectangle(0, 0, data.width, data.height,
                                 fill='grey', width=0)
-        canvas.create_text(30, 780, text = "Score ="+" "+str(data.score))
+        canvas.create_text(35, 780, text = "Score ="+" "+str(data.score))
+        canvas.create_text(360, 780, text = "Coins ="+" "+str(sum(data.nCoins)))
         redrawAll(canvas, data)
         canvas.update()    
 
@@ -560,14 +677,15 @@ def run(width=300, height=300):
         redrawAllWrapper(canvas, data)
         # pause, then call timerFired again
         canvas.after(data.timerDelay, timerFiredWrapper, canvas, data)
+
     # Set up data and call init
-    
     class Struct(object): pass
     
     data = Struct()
     data.width = width
     data.height = height
     data.score = 0 #<----------
+    data.nCoins = []
     data.timerDelay = TIMERDELAY # milliseconds
     root = Tk()
     root.wm_title("ballz")
@@ -590,7 +708,7 @@ def run(width=300, height=300):
     
     root.mainloop()  # blocks until window is closed
     
-
+#calling the main window
 wnd = Tk()
 wnd.geometry("2000x1500+300+100")
 wnd.config(bg = "black")
